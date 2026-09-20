@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Role__c</fullName>
+    <label>Role</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>HR Manager</fullName>
+                <default>false</default>
+                <label>HR Manager</label>
+            </value>
+            <value>
+                <fullName>HR Business Partner</fullName>
+                <default>false</default>
+                <label>HR Business Partner</label>
+            </value>
+            <value>
+                <fullName>Recruiter</fullName>
+                <default>false</default>
+                <label>Recruiter</label>
+            </value>
+            <value>
+                <fullName>IT Manager</fullName>
+                <default>false</default>
+                <label>IT Manager</label>
+            </value>
+            <value>
+                <fullName>Senior Salesforce Developer</fullName>
+                <default>false</default>
+                <label>Senior Salesforce Developer</label>
+            </value>
+            <value>
+                <fullName>Salesforce Developer</fullName>
+                <default>false</default>
+                <label>Salesforce Developer</label>
+            </value>
+            <value>
+                <fullName>Salesforce Administrator</fullName>
+                <default>false</default>
+                <label>Salesforce Administrator</label>
+            </value>
+            <value>
+                <fullName>Junior Salesforce Developer</fullName>
+                <default>false</default>
+                <label>Junior Salesforce Developer</label>
+            </value>
+            <value>
+                <fullName>IT Support Specialist</fullName>
+                <default>false</default>
+                <label>IT Support Specialist</label>
+            </value>
+            <value>
+                <fullName>Finance Manager</fullName>
+                <default>false</default>
+                <label>Finance Manager</label>
+            </value>
+            <value>
+                <fullName>Financial Analyst</fullName>
+                <default>false</default>
+                <label>Financial Analyst</label>
+            </value>
+            <value>
+                <fullName>Accountant</fullName>
+                <default>false</default>
+                <label>Accountant</label>
+            </value>
+            <value>
+                <fullName>Sales Manager</fullName>
+                <default>false</default>
+                <label>Sales Manager</label>
+            </value>
+            <value>
+                <fullName>Account Executive</fullName>
+                <default>false</default>
+                <label>Account Executive</label>
+            </value>
+            <value>
+                <fullName>Sales Representative</fullName>
+                <default>false</default>
+                <label>Sales Representative</label>
+            </value>
+            <value>
+                <fullName>Sales Operations Specialist</fullName>
+                <default>false</default>
+                <label>Sales Operations Specialist</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

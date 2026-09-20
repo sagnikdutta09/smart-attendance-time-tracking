@@ -1,0 +1,72 @@
+<template>
+    <template lwc:if={showDashboard}>
+        <div class="dashboardDate">
+            <div class=attendance-display>
+                <p class="attendance-label">Year Avg. </p>
+                <span class={yearlyAttendanceClass}>{currentEmployeeAttendance.Yearly_Attendance__c}%</span>
+            </div>
+            <div class=attendance-display>
+                <p class="attendance-label">Month Avg. </p>
+                <span class={monthlyAttendanceClass}>{currentEmployeeAttendance.Monthly_Attendance__c}%</span>
+            </div>
+            <div class=attendance-display>
+                <p class="attendance-label">Week Avg. </p>
+                <span class={weeklyAttendanceClass}>{currentEmployeeAttendance.Weekly_Attendance__c}%</span>
+            </div>
+        </div>
+    </template>
+    <template lwc:if={showDialog}>
+        <div class="overlay">
+            <div class="attendance-box">
+                <p class="message">Hello {userName}, you haven't checked in today.</p>
+                <lightning-button label="Check In" variant="brand" onclick={handleCheckIn}>
+                </lightning-button>
+                <p class="instruction">
+                    Please check in to begin tracking your work hours.
+                </p>
+                <template lwc:if={isAdmin}>
+                    <button class="close-button" onclick={handleClose}>
+                        I'm a System Admin and authorized to close this dialog.
+                    </button>
+                </template>
+            </div>
+        </div>
+    </template>
+    <template lwc:if={showCheckoutBox}>
+        <div class="overlay">
+            <div class="attendance-box">
+                <p class="message">You've checked-out for today, have a good day.</p>
+                <button class="close-checkout" onclick={closeCheckout}>
+                    Close
+                </button>
+            </div>
+        </div>
+    </template>
+    <template lwc:if={userCheckIn}>
+        <div class="checkoutBox">
+            <div class="checkoutMessage">
+                Hello {userName}, you're checked in.
+            </div>
+
+            <div class="checkoutDetails">
+                <span>Checked in : {checkinTime}</span>
+                <span>Current time : {currentTime}</span>
+
+                <lightning-button label="Check Out" variant="brand" onclick={handleCheckOut}>
+                </lightning-button>
+            </div>
+        </div>
+    </template>
+    <template lwc:if={showCheckout}>
+        <div class="checkoutBox">
+            <div class="checkoutMessage">
+                Hello {userName}, you've checked out for today.
+            </div>
+
+            <div class="checkoutDetails">
+                <span>Checked in : {checkinTime}</span>
+                <span>Checked out : {checkOutTime}</span>
+            </div>
+        </div>
+    </template>
+</template>

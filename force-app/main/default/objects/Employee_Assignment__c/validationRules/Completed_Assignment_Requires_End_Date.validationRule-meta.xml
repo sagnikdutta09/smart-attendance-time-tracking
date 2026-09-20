@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Completed_Assignment_Requires_End_Date</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Status__c, &quot;Completed&quot;),
+    ISBLANK(End_Date__c)
+)</errorConditionFormula>
+    <errorDisplayField>End_Date__c</errorDisplayField>
+    <errorMessage>Completed assignments must have an End Date.</errorMessage>
+</ValidationRule>

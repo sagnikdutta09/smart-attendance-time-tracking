@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Employee_Requires_Department</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Status__c, &quot;Active&quot;),
+    ISBLANK(Department__c)
+)</errorConditionFormula>
+    <errorMessage>Active employees must be assigned to a department.</errorMessage>
+</ValidationRule>
