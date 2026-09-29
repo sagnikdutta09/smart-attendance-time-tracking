@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CheckoutAfterCheckin</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    NOT(ISBLANK(Check_In__c)),
+    NOT(ISBLANK(Check_Out__c)),
+    Check_Out__c &lt;= Check_In__c
+)</errorConditionFormula>
+    <errorMessage>Check out time cannot be before check in time,</errorMessage>
+</ValidationRule>

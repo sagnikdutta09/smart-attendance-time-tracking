@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AttendanceDateCannotBeFuture</fullName>
+    <active>true</active>
+    <errorConditionFormula>Attendance_Date__c &gt; TODAY()</errorConditionFormula>
+    <errorMessage>Attendance Date cannot be in the future.</errorMessage>
+</ValidationRule>

@@ -1,8 +1,8 @@
 @isTest
 public with sharing class EmployeeServiceTest {
     static User createNewUser(){
-    return new User(
-        FirstName = 'Test',
+        return new User(
+            FirstName = 'Test',
         LastName = 'Employee',
         Alias = 'tstemp',
         Email = 'testemployee@example.com',
@@ -60,11 +60,13 @@ public with sharing class EmployeeServiceTest {
         insert testUser;
         Employee__c testEmp = new Employee__c(
             Name='Test Emp',
-            Employee_User__c=testUser.Id
-        );
+        Employee_User__c=testUser.Id
+            );
         insert testEmp;
         Test.startTest();
-        attendanceController.checkIn(testUser.Id);
+        System.runAs(testUser) {
+            attendanceController.checkIn();
+        }
         Test.stopTest();
         List<Attendance_Log__c> attnLog = [
             SELECT Employee__c, Attendance_Date__c, Check_In__c
@@ -82,17 +84,19 @@ public with sharing class EmployeeServiceTest {
         insert testUser;
         Employee__c testEmp = new Employee__c(
             Name='Test Emp',
-            Employee_User__c=testUser.Id
-        );
+        Employee_User__c=testUser.Id
+            );
         insert testEmp;
         Attendance_Log__c empAtnLog = new Attendance_Log__c(
             Employee__c = testEmp.Id,
-            Attendance_Date__c = Date.today(),
-            Check_In__c = System.now().addHours(-3)
-        );
+        Attendance_Date__c = Date.today(),
+        Check_In__c = System.now().addHours(-3)
+            );
         insert empAtnLog;
         Test.startTest();
-        attendanceController.checkOut(testUser.Id);
+        System.runAs(testUser) {
+            attendanceController.checkOut();
+        }
         Test.stopTest();
         List<Attendance_Log__c> attnLog = [
             SELECT Check_Out__c,  Check_In__c
@@ -103,18 +107,13 @@ public with sharing class EmployeeServiceTest {
         System.assertNotEquals(null, attnLog[0].Check_Out__c);
     }
     @isTest
-    static void attendanceControllerNegativeTest_NullUser(){
-        Test.startTest();
-        attendanceController.checkIn(null);
-        Test.stopTest();
-        System.assertEquals(0, [SELECT COUNT() FROM Attendance_Log__c]);
-    }
-    @isTest
     static void attendanceControllerNegativeTest_NullEmp(){
-        User testUser = createNewUser();        
+        User testUser = createNewUser();
         insert testUser;
         Test.startTest();
-        attendanceController.checkIn(testUser.Id);
+        System.runAs(testUser) {
+            attendanceController.checkIn();
+        }
         Test.stopTest();
         System.assertEquals(0, [SELECT COUNT() FROM Attendance_Log__c]);
     }

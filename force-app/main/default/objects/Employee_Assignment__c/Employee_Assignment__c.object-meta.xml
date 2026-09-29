@@ -155,7 +155,7 @@
     <externalSharingModel>Private</externalSharingModel>
     <label>Employee Assignment</label>
     <nameField>
-        <displayFormat>A-{0000}</displayFormat>
+        <displayFormat>EM-{0000}</displayFormat>
         <label>Employee Assignment Name</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>

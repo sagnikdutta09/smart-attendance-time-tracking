@@ -6,6 +6,7 @@
     <columns>Department__c</columns>
     <columns>Manager__c</columns>
     <columns>Location__c</columns>
+    <columns>Employee_User__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>
